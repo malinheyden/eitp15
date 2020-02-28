@@ -9,8 +9,11 @@
 #define ADC_H_
 
 #include <avr/io.h>
-void uart_init();
 
+#define HEADER 0xFF
+#define TAIL 0xFE
+
+void uart_init();
 void uart_set_baudrate(int baudrate);
 void uart_send_data(uint8_t data);
 void uart_send_header();
