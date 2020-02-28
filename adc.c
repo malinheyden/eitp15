@@ -24,8 +24,9 @@ void adc_start() {
 	
 }
 
-//skicka in 5 bitars binärt tal?? 0b00011 for ADC3
+//Send in int to which pin to change to
 void adc_change_pin(int MUX_SEL) {
-	ADMUX |= MUX_SEL;
-	
+	if (MUX_SEL < 32){
+		ADMUX |= MUX_SEL;
+	}
 }
