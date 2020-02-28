@@ -22,9 +22,34 @@ void uart_init()
 	
 }
 
+/************************************************************************/
+/*Sends header, data, and tail                                                                      */
+/************************************************************************/
 void uart_send_data(uint8_t data)
 {
-	
+	//Wait for buffer to be empty
+	while(!(UCSR0A & (1 << UDRE0))){
+		
+	}
+	UDR0 = data;
+}
+
+void uart_send_header()
+{	
+	//Wait for buffer to be empty
+	while(!(UCSR0A & (1 << UDRE0))){
+		
+	}
+	UDR0 = HEADER;
+}
+
+void uart_send_tail()
+{
+	//Wait for buffer to be empty
+	while(!(UCSR0A & (1 << UDRE0))){
+		
+	}
+	UDR0 = TAIL;
 }
 
 void uart_set_baudrate(int baudrate)
