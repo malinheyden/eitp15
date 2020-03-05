@@ -25,8 +25,7 @@ void adc_start() {
 }
 
 //Send in int to which pin to change to
-void adc_change_pin(int MUX_SEL) {
-	if (MUX_SEL < 32){
+void adc_change_pin(uint8_t MUX_SEL) {
+		ADMUX &= ~((1 << MUX0)|(1 << MUX1));
 		ADMUX |= MUX_SEL;
-	}
 }

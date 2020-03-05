@@ -11,9 +11,10 @@
 
 #include <avr/io.h>
 
+
 void adc_init();
 void adc_start();
-void adc_change_pin();
+void adc_change_pin(uint8_t);
 
 
 #endif /* ADC_H_ */
