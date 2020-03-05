@@ -11,20 +11,18 @@ void uart_init()
 	//Asynchronous is default
 	//Set baud rate, (high) and low bits
 	//Default baud rate 9600 -> UBRR0L = 103 
-	UBRR0L |= 103; //är detta ok?
+	UBRR0L |= 103 ;
 	
 	//Enable tx complete interrupt, enable transmitter
-	UCSR0B |= (1 << TXCIE0)|(1 << TXEN0);
+	UCSR0B |= (1 << TXCIE0)|(1 << TXEN0)|(1 << RXEN0)|(1 << RXCIE0);
 	
 	//set frame format: 8 bits of data, no parity, 1 stop bit.
 	UCSR0C |= (1 << UCSZ00)|(1 << UCSZ01);
 	
+	uint8_t test = UBRR0L;
 	
 }
 
-/************************************************************************/
-/*Sends header, data, and tail                                                                      */
-/************************************************************************/
 void uart_send_data(uint8_t data)
 {
 	//Wait for buffer to be empty
