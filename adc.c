@@ -24,8 +24,8 @@ void adc_start() {
 	
 }
 
-//Send in int to which pin to change to
 void adc_change_pin(uint8_t MUX_SEL) {
+		//Clear bits, then put in MUX_SEL value
 		ADMUX &= ~((1 << MUX0)|(1 << MUX1));
 		ADMUX |= MUX_SEL;
 }
