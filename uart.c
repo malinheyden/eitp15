@@ -19,8 +19,6 @@ void uart_init()
 	//set frame format: 8 bits of data, no parity, 1 stop bit.
 	UCSR0C |= (1 << UCSZ00)|(1 << UCSZ01);
 	
-	uint8_t test = UBRR0L;
-	
 }
 
 void uart_send_data(uint8_t data)
@@ -50,10 +48,7 @@ void uart_send_tail()
 	UDR0 = TAIL;
 }
 
-void uart_set_baudrate(int baudrate)
-{
-	//UBRR0H = 
-}
+
 
 void uart_enable_even_parity()
 {
